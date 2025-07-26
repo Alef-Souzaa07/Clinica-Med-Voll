@@ -34,4 +34,10 @@ public class MedicoController {
                 .map(DadosListagemMedico::new );//É preciso converter de Medico para DadosListagemMedico
     }
 
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosCadastroMedico dados){
+
+    }
+
 }
