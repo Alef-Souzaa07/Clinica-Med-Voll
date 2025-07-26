@@ -1,9 +1,6 @@
 package br.com.alura.med_voll.api.controller;
 
-import br.com.alura.med_voll.api.medico.DadosCadastroMedico;
-import br.com.alura.med_voll.api.medico.DadosListagemMedico;
-import br.com.alura.med_voll.api.medico.Medico;
-import br.com.alura.med_voll.api.medico.MedicoRepository;
+import br.com.alura.med_voll.api.medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,8 +33,9 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosCadastroMedico dados){
-
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
+        var medico = repository.getReferenceById(dados.id());//Carregou os dados do medico pelo id
+        medico.atualizarInformacoes(dados);
     }
 
 }
