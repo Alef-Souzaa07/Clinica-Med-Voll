@@ -27,7 +27,7 @@ public class MedicoController {
 
     @GetMapping
     public Page<DadosListagemMedico> listar(Pageable paginacao){//Criar dto para devolver dados
-        return repository.findAll(paginacao)
+        return repository.findAllByAtivoTrue(paginacao)
                 .map(DadosListagemMedico::new );//É preciso converter de Medico para DadosListagemMedico
     }
 
