@@ -41,7 +41,8 @@ public class MedicoController {
     @DeleteMapping("/{id}")//Vai receber o id do medico
     @Transactional
     public void deletar(@PathVariable Long id){
-        repository.deleteById(id);
+        var medico = repository.getReferenceById(id);//Carregou os dados do medico pelo id
+        medico.excluir();
     }
 
 }
