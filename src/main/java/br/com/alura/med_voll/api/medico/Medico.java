@@ -29,7 +29,10 @@ public class Medico {
     @Embedded // quando tem um grupo de campos que se repetem em várias entidades
     private Endereco endereco;
 
+    private boolean ativo;
+
     public Medico(DadosCadastroMedico dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.crm = dados.crm();
