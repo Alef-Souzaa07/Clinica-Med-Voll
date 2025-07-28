@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +41,10 @@ public class MedicoController {
 
     @DeleteMapping("/{id}")//Vai receber o id do medico
     @Transactional
-    public void deletar(@PathVariable Long id){
+    public ResponseEntity deletar(@PathVariable Long id){
         var medico = repository.getReferenceById(id);//Carregou os dados do medico pelo id
         medico.excluir();
+        return ResponseEntity.noContent().build();
     }
 
 }
