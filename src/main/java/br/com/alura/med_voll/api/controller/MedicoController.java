@@ -22,21 +22,26 @@ public class MedicoController {
 
     @PostMapping
     @Transactional // Utilizado pois é um metodo de insert, em que dados vao ser inseridos
-    public void cadastrar(@RequestBody @Valid DadosCadastroMedico dados){
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados){
         repository.save(new Medico(dados));
+
+
     }
 
     @GetMapping
-    public Page<DadosListagemMedico> listar(Pageable paginacao){//Criar dto para devolver dados
-        return repository.findAllByAtivoTrue(paginacao)
+    public ResponseEntity<Page<DadosListagemMedico>> listar(Pageable paginacao){//Criar dto para devolver dados
+        var page = repository.findAllByAtivoTrue(paginacao)
                 .map(DadosListagemMedico::new );//É preciso converter de Medico para DadosListagemMedico
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
         var medico = repository.getReferenceById(dados.id());//Carregou os dados do medico pelo id
         medico.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 
     @DeleteMapping("/{id}")//Vai receber o id do medico
