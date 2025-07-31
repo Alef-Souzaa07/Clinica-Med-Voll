@@ -1,5 +1,7 @@
 package br.com.alura.med_voll.api.domain.usuario;
 
-public record DadosAutenticacao(String login,
+import jakarta.validation.constraints.Email;
+
+public record DadosAutenticacao(@Email String login,
                                 String senha) {
 }
