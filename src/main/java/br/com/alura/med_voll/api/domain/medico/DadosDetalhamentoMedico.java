@@ -1,6 +1,6 @@
-package br.com.alura.med_voll.api.medico;
+package br.com.alura.med_voll.api.domain.medico;
 
-import br.com.alura.med_voll.api.endereco.Endereco;
+import br.com.alura.med_voll.api.domain.endereco.Endereco;
 
 public record DadosDetalhamentoMedico(Long id,
                                       String nome,

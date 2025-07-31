@@ -1,4 +1,4 @@
-package br.com.alura.med_voll.api.paciente;
+package br.com.alura.med_voll.api.domain.paciente;
 
 public record DadosListagemPaciente(Long id, String nome, String email, String cpf) {
 

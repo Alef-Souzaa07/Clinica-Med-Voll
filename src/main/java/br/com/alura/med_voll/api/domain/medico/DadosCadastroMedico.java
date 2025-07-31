@@ -1,6 +1,6 @@
-package br.com.alura.med_voll.api.medico;
+package br.com.alura.med_voll.api.domain.medico;
 
-import br.com.alura.med_voll.api.endereco.DadosEndereco;
+import br.com.alura.med_voll.api.domain.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

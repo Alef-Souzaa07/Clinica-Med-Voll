@@ -1,6 +1,5 @@
-package br.com.alura.med_voll.api.paciente;
+package br.com.alura.med_voll.api.domain.paciente;
 
-import br.com.alura.med_voll.api.paciente.Paciente;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
